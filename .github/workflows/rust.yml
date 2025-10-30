@@ -15,18 +15,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Install mold linker
         run: |
           sudo apt-get update
           sudo apt-get install -y mold
-      
+
       - name: Setup Rust toolchain
         uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           toolchain: nightly
           components: rustfmt, clippy
-      
+
       - name: Configure Rust to use mold and cranelift
         run: |
           mkdir -p .cargo
@@ -44,18 +44,18 @@ jobs:
           [profile.dev.package."*"]
           codegen-backend = "llvm"
           EOF
-      
+
       - name: Show Rust version
         run: rustc --version
-      
+
       - name: Format check
         run: cargo fmt --all -- --check
-      
+
       - name: Clippy
         run: cargo clippy --all -- -D warnings
-      
+
       - name: Build
         run: cargo build --verbose
-      
+
       - name: Run tests
         run: cargo test --verbose
