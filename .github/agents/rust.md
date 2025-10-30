@@ -1,5 +1,5 @@
 ---
-name:rust developer
+name: rust developer
 description: rust的开发ai
 ---
 
