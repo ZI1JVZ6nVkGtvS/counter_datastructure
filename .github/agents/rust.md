@@ -3,7 +3,7 @@ name:rust developer
 description: rust的开发ai
 ---
 
-# Agent
+# rust
 
 ## 注释规范
 
